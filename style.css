@@ -1,10 +1,5 @@
-@@font-face {
-  font-family: "Crimson Text";
-  src: url(https://fonts.googleapis.com/css?family=Crimson+Text);
-}
-
 body {
-  font-family: "Crimson Text", serif;
+  font-family: 'Frank Ruhl Libre', sans-serif;
   background-color: #C8C8C8;
 
 }
