@@ -1,6 +1,6 @@
 'use strict';
 
-/************************* FIRST AND PIKE STORE *******************************/
+/************************* First And Pike Store *******************************/
 var firstAndPike = {
   minCustomersPerHour: 23,
   maxCustomersPerHour: 65,
@@ -56,7 +56,7 @@ listElement.setAttribute('class', 'firstAndPikeCookiesListItems'); // step 2
 listElement.textContent = 'Total: ' + firstAndPikeTotalCookies + ' cookies';
 firstAndPikeCookiesUl.appendChild(listElement); // step 3
 
-/**************************** SeaTac Airport **********************************/
+/************************** SeaTac Airport Store ******************************/
 var seaTacAirport = {
   minCustomersPerHour: 3,
   maxCustomersPerHour: 24,
@@ -111,3 +111,5 @@ listElement = document.createElement('li'); // step 1
 listElement.setAttribute('class', 'seaTacAirportListItems'); // step 2
 listElement.textContent = 'Total: ' + seaTacAirportTotalCookies + ' cookies';
 seaTacAirpotCookiesUl.appendChild(listElement); // step 3
+
+/************************* Seattle Center Store *******************************/
