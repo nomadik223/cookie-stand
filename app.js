@@ -3,26 +3,45 @@
 // Holds business hours in array
 var businessHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-var tableEl, rowEl, tableHeadEl;
+var tableEl, tHeaderEl, tFooterEl, rowEl, tableHeadingEl, tdEl;
 
-function creatTable() {
+function creatTableHeader() {
   tableEl = document.getElementById('cookie-table');
+  tHeaderEl = document.createElement('thead');
   rowEl = document.createElement('tr');
-  tableHeadEl = document.createElement('th'); //create empty first column
-  rowEl.appendChild(tableHeadEl);
+  tableHeadingEl = document.createElement('th'); //create empty first column
+  rowEl.appendChild(tableHeadingEl);
 
   // create business hours columns
   for (var i = 0; i < businessHours.length; i++) {
-    tableHeadEl = document.createElement('th');
-    tableHeadEl.textContent = businessHours[i];
-    rowEl.appendChild(tableHeadEl); // add th elemet to row
+    tableHeadingEl = document.createElement('th');
+    tableHeadingEl.textContent = businessHours[i];
+    rowEl.appendChild(tableHeadingEl); // add th elemet to row
   }
 
   // create daily location total column
-  tableHeadEl = document.createElement('th');
-  tableHeadEl.textContent = 'Daily Location Total';
-  rowEl.appendChild(tableHeadEl); // add th element to row
-  tableEl.appendChild(rowEl); // add row element to table
+  tableHeadingEl = document.createElement('th');
+  tableHeadingEl.textContent = 'Daily Location Total';
+  rowEl.appendChild(tableHeadingEl); // add th element to row
+  tHeaderEl.appendChild(rowEl);
+  tableEl.appendChild(tHeaderEl); // add row element to table
+}
+
+function createTableFooter() {
+  tFooterEl = document.createElement('tfoot');
+  rowEl = document.createElement('tr');
+  tdEl = document.createElement('td');
+  tdEl.textContent = 'Totals';
+  rowEl.appendChild(tdEl);
+
+  // create footer table data. blank for now
+  for (var i = 0; i < businessHours.length; i++) {
+    tdEl = document.createElement('td');
+    rowEl.appendChild(tdEl);
+  }
+
+  tFooterEl.appendChild(rowEl);
+  tableEl.appendChild(tFooterEl);
 }
 
 // Cookie Store Object
@@ -59,7 +78,7 @@ Store.prototype.calculateNumOfCookiesPerHour = function() {
 Store.prototype.render = function() {
   // appends store name to row element
   rowEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
+  tdEl = document.createElement('td');
   tdEl.textContent = this.storeName;
   rowEl.appendChild(tdEl);
 
@@ -78,7 +97,7 @@ Store.prototype.render = function() {
   tableEl.appendChild(rowEl); // add row element to table
 };
 
-creatTable(); //create Table
+creatTableHeader();
 
 // create 1st And Pike Store
 var firstAndPike = new Store('1st And Pike', 23, 65, 6.3);
@@ -104,3 +123,5 @@ capitolHill.render();
 var alki = new Store('Alki', 2, 16, 4.6);
 alki.calculateNumOfCookiesPerHour();
 alki.render();
+
+createTableFooter();
