@@ -27,3 +27,16 @@ var firstAndPike = {
 };
 
 //Display the values of each array as unordered lists in the browser
+
+/************** FIRST AND PIKE STORE ***************/
+firstAndPike.genRandomNumOfCustomers();
+firstAndPike.calculateNumOfCookiesPerHour();
+var firstAndPikeCookiesUl = document.getElementById('1st-pike-ul'); //get ul element
+
+for (var i = 0; i < firstAndPike.numOfCookiesForEachHourArray.length; i++) {
+  console.log(firstAndPike.numOfCookiesForEachHourArray[i]);
+  var listElement = document.createElement('li'); // step 1
+  listElement.setAttribute('class', 'firstAndPikeCookiesListItems'); // step 2
+  listElement.textContent = firstAndPike.numOfCookiesForEachHourArray[i][0] + ': ' + firstAndPike.numOfCookiesForEachHourArray[i][firstAndPike.numOfCookiesIndex] + ' cookies';
+  firstAndPikeCookiesUl.appendChild(listElement); // step 3
+}
