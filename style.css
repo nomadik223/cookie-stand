@@ -1,10 +1,27 @@
-@@font-face {
-  font-family: "Crimson Text";
-  src: url(https://fonts.googleapis.com/css?family=Crimson+Text);
+body {
+  font-family: 'Cabin', sans-serif;
+  background-color: #ece1cb;
 }
 
-body {
-  font-family: "Crimson Text", serif;
-  background-color: #C8C8C8;
+h1#main-heading {
+  text-align: center;
+  padding-bottom: 40px;
+}
 
+div#image-block {
+  height: 500px;
+  width: 1000px;
+  display: block;
+  margin: 0px auto 0px auto;
+  background-image: url("resources/salmon.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center 25%;
+}
+
+h2#text-on-image {
+  text-align: center;
+  margin: 0px auto 0px auto;
+  height: inherit;
+  width: 500px;
 }
