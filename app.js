@@ -97,6 +97,27 @@ Store.prototype.render = function() {
   tableEl.appendChild(rowEl); // add row element to table
 };
 
+var formEl = document.getElementById('form-section');
+
+formEl.addEventListener('submit', function(event){
+  event.preventDefault();
+  event.stopPropagation();
+
+  var storeName = event.target.storeName.value;
+  console.log('Store name: ' + storeName);
+  var minCustPerHour = event.target.minCustomersPerHour.value;
+  console.log('Minimum customers per hour: ' + minCustPerHour);
+  var maxCustPerHour = event.target.maxCustomersPerHour.value;
+  console.log('Maximum customers per hour: ' + maxCustPerHour);
+  var avgCookiesPerCust = event.target.avgCookiesPerCustomer.value;
+  console.log('Average cookies per customer: ' + avgCookiesPerCust);
+
+  var newStore = new Store(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust);
+
+  newStore.calculateNumOfCookiesPerHour();
+  newStore.render();
+}, false);
+
 creatTableHeader();
 
 // create 1st And Pike Store
